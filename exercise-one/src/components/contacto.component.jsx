@@ -4,7 +4,7 @@ import EstadoComponent from './estado.component';
 
 const ContactoComponent = () => {
 
-    const contacto = new Contacto('Cristian','Marin','cristian@gmail.com',false)
+    const contacto = new Contacto('Cristian','Marin','cristian@gmail.com',true)
 
     return (
         <div>
