@@ -4,7 +4,7 @@ const AllCycles = () => {
     
     useEffect(() => {
         
-        console.log('Compoente creado');
+        console.log('Componente creado');
 
         const intervalID = setInterval(() => {
             document.title = `${new Date()}`
