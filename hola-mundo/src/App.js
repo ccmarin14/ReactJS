@@ -13,14 +13,11 @@ import GreetingStyled from './components/pure/greetingStyled';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         {/* Componente de ejemplo tipo clase */}        
         {/*<Greting name="Cristian"></Greting>*/}
         {/* Componente de ejemplo funcional */}
         {/*<GretingFunc name="Cristian"></GretingFunc>*/}
         {/* Componente de lista de tareas */}
-        {/*<TaskListComponent></TaskListComponent>*/}
         {/*Ejemplos de uso de HOOKS*/}
         {/*<Ejemplo1></Ejemplo1>*/}
         {/*<Ejemplo2></Ejemplo2>*/}
@@ -28,8 +25,8 @@ function App() {
         {/*<Ejemplo4 nombre='Cristian'>
           <h3>Contenido del props.children</h3>
         </Ejemplo4>*/}
-        <GreetingStyled name='Cristian'></GreetingStyled>
-      </header>
+        {/*<GreetingStyled name='Cristian'></GreetingStyled>*/}
+        <TaskListComponent></TaskListComponent>
     </div>
   );
 }
