@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const EstadoComponent = (estado) => {
     return (
-        <p><b>Conectado:</b> {estado.conectado ? 'Contacto En Línea' : 'Contacto No Disponible'}</p>
+        <span><b>Estado:</b> {estado.conectado ? 'Contacto en línea' : 'Contacto no disponible'}</span>
     );
 };
 
