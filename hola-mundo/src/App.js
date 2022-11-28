@@ -1,14 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 import TaskListComponent from './components/container/task_list';
 //import Greting from './components/pure/greting';
 //import GretingFunc from './components/pure/gretingFunc';
-// import GreetingStyled from './components/pure/greetingStyled';
+//import GreetingStyled from './components/pure/greetingStyled';
 //import Ejemplo1 from './hooks/Ejemplo1';
 //import Ejemplo2 from './hooks/Ejemplo2';
 //import MiComponenteConContexto from './hooks/Ejemplo3';
 //import Ejemplo4 from './hooks/Ejemplo4';
 //import Father from './components/container/father';
+import OptionalRender from './components/pure/optionalRender';
 
 
 function App() {
@@ -29,8 +29,10 @@ function App() {
         {/*<GreetingStyled name='Cristian'></GreetingStyled>*/}
         {/* Gestión de eventos */}
         {/*<Father></Father>*/}
+        {/* Ejemplos de renderizado condicional */}
+        <OptionalRender></OptionalRender>
         {/* Proyecto Final */}
-        <TaskListComponent></TaskListComponent>
+        {/* <TaskListComponent></TaskListComponent> */}
     </div>
   );
 }

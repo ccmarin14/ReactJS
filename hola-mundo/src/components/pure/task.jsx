@@ -15,7 +15,7 @@ const TaskComponent = ({task,complete,remove}) => {
     }, [task]);
 
     /**
-     * Funtions that returns a Badge
+     * Functions that returns a Badge
      * depending on the lever of the task
      */
     function taskLevelBadge(){

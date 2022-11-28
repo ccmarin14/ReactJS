@@ -10,12 +10,9 @@ const TaskListComponent = () => {
     const defaultTask2 = new Task('Example2', 'Default description2', false, LEVELS.URGENT);
     const defaultTask3 = new Task('Example3', 'Default description3', true, LEVELS.BLOCKING);
 
-
-
     // Estado del componente
     const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
     const [loading, setLoading] = useState(true);
-
 
     // Control del ciclo de vida del componente
     useEffect(() => {
