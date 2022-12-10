@@ -4,27 +4,22 @@ import { Square } from '../../models/square.class';
 
 const newSquare = new Square('255px', '255px','black');
 
-const DrawSquare = ({ color, change }) => {
+const DrawSquare = ({ color, onChange, offChange }) => {
     const setStyle = {
         width: newSquare.base,
         height: newSquare.side,
         backgroundColor: color
     }
 
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         change();
-    //       }, 1000);
-    // }, [color]);
-
     return (
-        <div onMouseOver={change} style={setStyle}></div>
+        <div onMouseOver={onChange} onMouseLeave={offChange} onDoubleClick={offChange} style={setStyle}></div>
     )
 }
 
 const SquareComponent = () => {
 
     const [color, setColor] = useState(`rgb(0,0,0)`);
+    const [bucle, setBucle] = useState(0);
 
     const changeColor = () => {
         let newColor = '';
@@ -34,15 +29,21 @@ const SquareComponent = () => {
                 newColor += ',';
             }
         }
-        for (let i = 0; i < 3; i++) {
-            setTimeout(setColor(`rgb(${newColor})`),1000);
-        }
-
+        setColor(`rgb(${newColor})`);
     }
+
+    const onChangeColor = () => {
+        return setBucle(setInterval(changeColor, 300));
+    };
+
+    const offChangeColor = () => {
+        return clearInterval(bucle);
+    };
+    
 
     return (
         <div>
-            <DrawSquare color={color} change={changeColor}></DrawSquare>
+            <DrawSquare color={color} onChange={onChangeColor} offChange={offChangeColor}></DrawSquare>
         </div>
     );
 }
