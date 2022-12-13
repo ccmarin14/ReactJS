@@ -30,9 +30,9 @@ function App() {
         {/* Gestión de eventos */}
         {/*<Father></Father>*/}
         {/* Ejemplos de renderizado condicional */}
-        <OptionalRender></OptionalRender>
+        {/* <OptionalRender></OptionalRender> */}
         {/* Proyecto Final */}
-        {/* <TaskListComponent></TaskListComponent> */}
+        <TaskListComponent></TaskListComponent>
     </div>
   );
 }

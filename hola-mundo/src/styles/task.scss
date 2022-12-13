@@ -1,4 +1,23 @@
+.task {
+
+}
+
 .task-action {
     cursor: pointer;
 }
 
+.task-completed {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.task-pending {
+    font-weight: bold;
+    color: tomato;
+}
+
+.task-loading {
+    color: gray;
+    font-size: 30px;
+    font-weight: bold;
+}
