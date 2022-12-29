@@ -1,5 +1,6 @@
 import './App.css';
 import TaskListComponent from './components/container/task_list';
+import RegisterFormik from './components/pure/forms/registerFormik';
 // import LoginFormik from './components/pure/forms/loginFormik';
 // import Greting from './components/pure/greting';
 // import GretingFunc from './components/pure/gretingFunc';
@@ -15,7 +16,7 @@ import TaskListComponent from './components/container/task_list';
 function App() {
   return (
     <div className="App">
-        {/* Componente de ejemplo tipo clase */}        
+        {/* Componente de ejemplo tipo clase */}
         {/*<Greting name="Cristian"></Greting>*/}
         {/* Componente de ejemplo funcional */}
         {/*<GretingFunc name="Cristian"></GretingFunc>*/}
@@ -34,8 +35,9 @@ function App() {
         {/* <OptionalRender></OptionalRender> */}
         {/* Ejemplos de uso de Formik y Yup*/}
         {/* <LoginFormik></LoginFormik> */}
+        <RegisterFormik></RegisterFormik>
         {/* Proyecto Final */}
-        <TaskListComponent></TaskListComponent>
+        {/* <TaskListComponent></TaskListComponent> */}
     </div>
   );
 }
