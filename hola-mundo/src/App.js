@@ -1,6 +1,6 @@
 import './App.css';
 import TaskListComponent from './components/container/task_list';
-import RegisterFormik from './components/pure/forms/registerFormik';
+// import RegisterFormik from './components/pure/forms/registerFormik';
 // import LoginFormik from './components/pure/forms/loginFormik';
 // import Greting from './components/pure/greting';
 // import GretingFunc from './components/pure/gretingFunc';
@@ -35,9 +35,9 @@ function App() {
         {/* <OptionalRender></OptionalRender> */}
         {/* Ejemplos de uso de Formik y Yup*/}
         {/* <LoginFormik></LoginFormik> */}
-        <RegisterFormik></RegisterFormik>
+        {/* <RegisterFormik></RegisterFormik> */}
         {/* Proyecto Final */}
-        {/* <TaskListComponent></TaskListComponent> */}
+        { <TaskListComponent></TaskListComponent> }
     </div>
   );
 }
