@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import HomePage from './pages/home/HomePage';
 import NotFoundPage from './pages/404/NotFoundPage'
 import Aboutpage from './pages/about-faqs/Aboutpage';
@@ -7,6 +7,9 @@ import TaskPage from './pages/tasks/TaskPage';
 import TaskDetailPage from './pages/tasks/TaskDetailPage';
 
 function AppRoutingOne() {
+
+  const logged = false;
+
   return (
     <Router>
       <div>
@@ -21,7 +24,12 @@ function AppRoutingOne() {
         <Route exact path="/" element={ <HomePage /> } />
         <Route path="/about" element={ <Aboutpage /> } />
         <Route path="/faqs" element={ <Aboutpage /> } />
-        <Route path='/profile' element={ <ProfilePage /> }></Route>
+        <Route path='/profile' element={ 
+          logged ? 
+          <ProfilePage />: 
+          <Navigate replace to="/" />
+        }>
+        </Route>
         <Route path='/tasks' element={ <TaskPage /> }></Route>
         <Route path='/task/:id' element={ <TaskDetailPage /> }></Route>
         {/* 404 - Page No Found */}
