@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Navigate, usematch } from 'react-router-dom';
 import HomePage from './pages/home/HomePage';
 import NotFoundPage from './pages/404/NotFoundPage'
 import Aboutpage from './pages/about-faqs/Aboutpage';
@@ -18,12 +18,25 @@ const CustomRouteLogin = ({message}) => {
   return(<LoginPage />);
 }
 
-async function AppRoutingOne() {
+function AppRoutingOne() {
 
-  let logged = localStorage.getItem('credentials');
+  let logged = false;
+
+  let taskList = [
+    {
+      id: 1,
+      name: 'Task 1',
+      description: 'My first task'
+    },
+    {
+      id: 2,
+      name: 'Task 2',
+      description: 'My second task'
+    }
+  ]
 
   useEffect(() => {
-    logged =  localStorage.getItem('credentials');
+    logged = localStorage.getItem('credentials');
   }, []);
 
   return (
@@ -35,28 +48,37 @@ async function AppRoutingOne() {
           <Link to='/about'>| ABOUT |</Link>
           <Link to='/faqs'>| FAQS |</Link>
           <Link to='/any404'>| NotFound |</Link>
+          <Link to='/task/1'>| TASKONE |</Link>
+          <Link to='/task/2'>| TASKTWO |</Link>
         </aside>
       </div>
-      <Routes>
-        <Route exact path="/" element={ <HomePage /> } />
-        <Route path="/login" element={
-          logged ?
-          <CustomRouteHome message={'You are logged in. Redirecting to home ...'} />:
-          <CustomRouteLogin message={'You must be logged in. Redirecting to login ...'} />          
-        } />
-        <Route path="/about" element={ <Aboutpage /> } />
-        <Route path="/faqs" element={ <Aboutpage /> } />
-        <Route path='/profile' element={
-          logged ?
-          <ProfilePage />:
-          <CustomRouteLogin message={'You must be logged in. Redirecting to login ...'} />
-        } />
-        <Route path='/tasks' element={ <TaskPage /> } />
-        <Route path='/task/:id' element={ <TaskDetailPage /> } />
-        {/* 404 - Page No Found */}
-        <Route path="/*" element={ <NotFoundPage /> } />
-      </Routes>
-    </Router>
+      <main>
+        <Routes>
+          <Route exact path="/" element={ <HomePage /> } />
+          <Route path="/login" element={
+            logged ?
+            <CustomRouteHome message={'You are logged in. Redirecting to home ...'} />:
+            <CustomRouteLogin message={'You must be logged in. Redirecting to login ...'} />          
+          } />
+          <Route path="/about" element={ <Aboutpage /> } />
+          <Route path="/faqs" element={ <Aboutpage /> } />
+          <Route path='/profile' element={
+            logged ?
+            <ProfilePage />:
+            <CustomRouteLogin message={'You must be logged in. Redirecting to login ...'} />
+          } />
+          <Route path='/tasks' element={ <TaskPage /> } />
+          <Route 
+            exact 
+            path='/task/:id'
+            element={<TaskDetailPage task={taskList}/>}
+          >
+          </Route>
+          {/* 404 - Page No Found */}
+          <Route path="/*" element={ <NotFoundPage /> } />
+        </Routes>
+        </main>
+      </Router>
   );
 }
 

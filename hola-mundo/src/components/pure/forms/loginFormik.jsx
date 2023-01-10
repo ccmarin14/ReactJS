@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -12,6 +13,7 @@ const loginSchema = Yup.object().shape(
     }
 );
 
+
 const LoginFormik = () => {
 
     const initialCredentials = {
@@ -19,6 +21,8 @@ const LoginFormik = () => {
         password: ''
     }
 
+    const navigate = useNavigate();
+   
     return (
         <div>
             <h4>Login Formik</h4>
@@ -32,7 +36,8 @@ const LoginFormik = () => {
                     await new Promise((r) => setTimeout(r, 1000));
                     alert (JSON.stringify(values, null , 2));
                     // We save credentials in navegator
-                    localStorage.setItem('credentials', values)
+                    await localStorage.setItem('credentials', values);
+                    navigate('/profile');
                 }}
             >
 

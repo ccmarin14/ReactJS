@@ -4,14 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 export default function ProfilePage({user}) {
   
-    const history = useNavigate();
-
-    const navigate = (path) => {
-        history(path);
-      }
+    const navigate = useNavigate();
 
     const goBack = () => {
-        history(-1);
+        navigate(-1);
     }
   
     return (
