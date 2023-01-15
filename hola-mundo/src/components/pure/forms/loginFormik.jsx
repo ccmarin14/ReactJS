@@ -54,9 +54,6 @@ const LoginFormik = () => {
                             {
                                 errors.email && touched.email && 
                                 (
-                                    // <div className='error'>
-                                    //     <p>{errors.email}</p>
-                                    // </div>
                                     <ErrorMessage name="email" component='div'></ErrorMessage>
                                 )
                             }
@@ -85,6 +82,8 @@ const LoginFormik = () => {
                     )
                 }}
             </Formik>
+            <br/>
+            <button onClick={() => {navigate('/register')}}>Register</button>
         </div>
 
     );

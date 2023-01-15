@@ -3,6 +3,7 @@ import { Formik, Field, Form, ErrorMessage, yupToFormErrors } from 'formik';
 import { User } from '../../../models/user.class';
 import * as Yup from 'yup';
 import { ROLES } from '../../../models/roles.enum';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterFormik = () => {
 
@@ -15,6 +16,8 @@ const RegisterFormik = () => {
         confirm: '',
         roles: ROLES.USER
     }
+
+    const navigate = useNavigate();
 
 
     const registerSchema = Yup.object().shape(
@@ -107,6 +110,8 @@ const RegisterFormik = () => {
                 )}
 
             </Formik>
+            <br/>
+            <button onClick={() => {navigate('/login')}}>Go to Login</button>
         </div>
     );
 }
