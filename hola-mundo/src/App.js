@@ -11,6 +11,7 @@ import TaskListComponent from './components/container/task_list';
 // import Ejemplo4 from './hooks/Ejemplo4';
 // import Father from './components/container/father';
 // import OptionalRender from './components/pure/optionalRender';
+import AsyncExample from './components/pure/AsyncExample';
 
 
 function App() {
@@ -36,8 +37,12 @@ function App() {
         {/* Ejemplos de uso de Formik y Yup*/}
         {/* <LoginFormik></LoginFormik> */}
         {/* <RegisterFormik></RegisterFormik> */}
+
+        {/* Ejemplo de procesos asíncronos */}
+        <AsyncExample></AsyncExample>
+
         {/* Proyecto Final */}
-        { <TaskListComponent></TaskListComponent> }
+        {/* { <TaskListComponent></TaskListComponent> } */}
     </div>
   );
 }
