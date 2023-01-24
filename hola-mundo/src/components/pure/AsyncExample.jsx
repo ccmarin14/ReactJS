@@ -40,12 +40,46 @@ const AsyncExample = () => {
         .finally(() => console.log('SUCCESS: Name saved and retreived'))
     }
 
+    async function obtainMessage() {
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve('Hello World'), 2000);
+        });
+    
+    let message = await promise;
+
+    await alert(`Message recived: ${message}`)
+    }
+
+    const returnError = async() => {
+        await Promise.reject(new Error('Ooooops!'));
+    }
+
+    const consumeError = () => {
+        returnError()
+            .then((response) => alert(`Everything is OK: ${response}`))
+            .catch((error) => alert(`Something went wrong ${error}`)) 
+            .finally(() => alert('Finally executed'))
+    }
+
+    const urlNotFound = async () => {
+        try {
+            let response = await fetch('https://invalidURL');
+            alert(`Response: ${JSON.stringify(response)}`);
+        } catch (error) {
+            alert(`Something went wrong with your URL: ${error}(Check console)`)
+        }
+    }
 
 
     return (
         <div>
+            <h1>Async, Promise examples</h1>
             <button onClick={obtainNumber}>Obtain Number</button>
             <button onClick={obtainPromiseNumber}>Obtain Promise Number</button>
+            <button onClick={showStorage}>Save name and show</button>
+            <button onClick={obtainMessage}>Receive messages in 2 seconds</button>
+            <button onClick={consumeError}>Obtain Error</button>
+            <button onClick={urlNotFound}>Rquest to unknow URL</button>
         </div>
     );
 }
