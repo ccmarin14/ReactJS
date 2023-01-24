@@ -79,7 +79,7 @@ const AsyncExample = () => {
             <button onClick={showStorage}>Save name and show</button>
             <button onClick={obtainMessage}>Receive messages in 2 seconds</button>
             <button onClick={consumeError}>Obtain Error</button>
-            <button onClick={urlNotFound}>Rquest to unknow URL</button>
+            <button onClick={urlNotFound}>Request to unknow URL</button>
         </div>
     );
 }
