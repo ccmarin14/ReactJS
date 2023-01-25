@@ -12,6 +12,7 @@ import TaskListComponent from './components/container/task_list';
 // import Father from './components/container/father';
 // import OptionalRender from './components/pure/optionalRender';
 import AsyncExample from './components/pure/AsyncExample';
+import ObservableExample from './components/pure/ObservableExample';
 
 
 function App() {
@@ -39,7 +40,8 @@ function App() {
         {/* <RegisterFormik></RegisterFormik> */}
 
         {/* Ejemplo de procesos asíncronos */}
-        <AsyncExample></AsyncExample>
+        {/* <AsyncExample></AsyncExample> */}
+        <ObservableExample></ObservableExample>
 
         {/* Proyecto Final */}
         {/* { <TaskListComponent></TaskListComponent> } */}
