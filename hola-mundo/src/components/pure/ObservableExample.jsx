@@ -9,7 +9,7 @@ const ObservableExample = () => {
 
     const obtainNewNumber = () => {
         console.log('Subscription to Observable');
-        getNumbers().subcribe(
+        getNumbers.subscribe(
             {
                 next(newNumber) {
                     console.log('New Number:', newNumber);
@@ -25,7 +25,6 @@ const ObservableExample = () => {
                 }
             }
         )
-        console.log('Finished receiving numbers');
     }
     
     return (
