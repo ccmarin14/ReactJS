@@ -1,7 +1,7 @@
 import { cleanup } from '@testing-library/react';
 import React, { useEffect, useState } from 'react';
 
-import { getAllPagedUsers, getAllUsers, getUserDetails } from '../../services/fetchService';
+import { getAllPagedUsers, getAllUsers, getUserDetails, login } from '../../services/fetchService';
 
 const FetchExample = () => {
 
@@ -14,6 +14,20 @@ const FetchExample = () => {
     useEffect(() => {
         obtainUsers();
     }, [])
+
+    const authUser = () => {
+        login('eve.holt@reqres.in','cityslicka')
+            .then((response) => {
+                console.log('TOKEN', response.token);
+                sessionStorage.setItem('token', response.token);
+            })
+            .catch((error) => {
+                alert(`Error while login user: ${error}`);
+            })
+            .finally(() => {
+                console.log('Ended login user. Navigate to home ...');
+            })
+    }
     
     const obtainUsers = () => {
         getAllUsers()
@@ -69,6 +83,8 @@ const FetchExample = () => {
     
     return (
         <div>
+            {/* Button to simulate login */}
+            <button onClick={authUser}>Auth User</button>
             <h2>
                 Users:
             </h2>
@@ -82,14 +98,16 @@ const FetchExample = () => {
             <button onClick={() => {obtainPageUsers(2)}}>2</button>
             <div>
                 <h3>User Details</h3>
-                { selectedUser && (
+                { selectedUser != null ? (
                     <div>
                         <p>Name: { selectedUser.first_name }</p>
                         <p>Last name: { selectedUser.last_name }</p>
                         <p>Email: { selectedUser.email }</p>
-                        <img src={ selectedUser.avatar } style={{ height:'50px', width:'50px' }} alt="Avatar" />
+                        <img src={ selectedUser.avatar } style={{ height:'150px', width:'150px' }} alt="Avatar" />
                     </div>
-                ) }
+                ): 
+                (<h6>Please click on a User to see its details</h6>)
+                }
             </div>
         </div>
     );

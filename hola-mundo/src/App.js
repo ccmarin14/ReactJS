@@ -11,9 +11,10 @@ import TaskListComponent from './components/container/task_list';
 // import Ejemplo4 from './hooks/Ejemplo4';
 // import Father from './components/container/father';
 // import OptionalRender from './components/pure/optionalRender';
-import AsyncExample from './components/pure/AsyncExample';
-import FetchExample from './components/pure/FetchExample';
-import ObservableExample from './components/pure/ObservableExample';
+// import AsyncExample from './components/pure/AsyncExample';
+// import FetchExample from './components/pure/FetchExample';
+import AxiosExample from './components/pure/AxiosExample';
+// import ObservableExample from './components/pure/ObservableExample';
 
 
 function App() {
@@ -43,7 +44,8 @@ function App() {
         {/* Ejemplo de procesos asíncronos */}
         {/* <AsyncExample></AsyncExample> */}
         {/* <ObservableExample></ObservableExample> */}
-        <FetchExample></FetchExample>
+        {/* <FetchExample></FetchExample> */}
+        <AxiosExample></AxiosExample>
 
         {/* Proyecto Final */}
         {/* { <TaskListComponent></TaskListComponent> } */}
