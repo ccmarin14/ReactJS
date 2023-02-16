@@ -13,7 +13,7 @@ const AxiosExample = () => {
         getRandomUser()
         .then((response) => {
             if(response.status === 200) {
-                setUser(response.data.results)
+                setUser(response.data.results[0])
             }
         })
         .catch((error) => {
@@ -27,9 +27,9 @@ const AxiosExample = () => {
             { user != null ?
             (
                 <div>
-                    {/* <img src={user.picture.large} alt="avatar" /> */}
+                    <img src={user.picture.large} alt="avatar" />
                     <h2>Name: {user.name.title} {user.name.first} {user.name.last}</h2>
-                    <h3>Email: {user.mail}</h3>
+                    <h3>Email: {user.email}</h3>
                 </div>
             ):
             (
