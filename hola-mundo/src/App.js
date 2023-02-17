@@ -1,5 +1,6 @@
 import './App.css';
 import TaskListComponent from './components/container/task_list';
+import AxiosCRUDExample from './components/pure/AxiosCRUDExample';
 // import RegisterFormik from './components/pure/forms/registerFormik';
 // import LoginFormik from './components/pure/forms/loginFormik';
 // import Greting from './components/pure/greting';
@@ -13,7 +14,7 @@ import TaskListComponent from './components/container/task_list';
 // import OptionalRender from './components/pure/optionalRender';
 // import AsyncExample from './components/pure/AsyncExample';
 // import FetchExample from './components/pure/FetchExample';
-import AxiosExample from './components/pure/AxiosExample';
+// import AxiosExample from './components/pure/AxiosExample';
 // import ObservableExample from './components/pure/ObservableExample';
 
 
@@ -45,7 +46,8 @@ function App() {
         {/* <AsyncExample></AsyncExample> */}
         {/* <ObservableExample></ObservableExample> */}
         {/* <FetchExample></FetchExample> */}
-        <AxiosExample></AxiosExample>
+        {/* <AxiosExample></AxiosExample> */}
+        <AxiosCRUDExample></AxiosCRUDExample>
 
         {/* Proyecto Final */}
         {/* { <TaskListComponent></TaskListComponent> } */}

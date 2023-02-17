@@ -6,15 +6,24 @@ const AxiosCRUDExample = () => {
     const authUser = () => {
         login('eve.holt@reqres.in','cityslicka')
             .then((response) => {
-                alert(JSON.stringify(response.data))
+                if (response.data.token) {
+                    alert(JSON.stringify(response.data.token));
+                    sessionStorage.setItem('token', response.data.token);
+                } else {
+                    sessionStorage.removeItem('token');
+                    throw new Error('Login Failure');
+                }
             })
-            .catch((error) => alert(`Something went wrong: ${error}`))
+            .catch((error) => {
+                alert(`Something went wrong: ${error}`);
+                sessionStorage.removeItem('token');
+            })
             .finally(() => console.log('Login done'))
     }
     
     return (
         <div>
-            <button>
+            <button onClick={authUser}>
                 Login
             </button>
         </div>
