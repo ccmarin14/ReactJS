@@ -1,4 +1,5 @@
 import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 import TaskListComponent from './components/container/task_list';
 import AxiosCRUDExample from './components/pure/AxiosCRUDExample';
 // import RegisterFormik from './components/pure/forms/registerFormik';
@@ -47,7 +48,7 @@ function App() {
         {/* <ObservableExample></ObservableExample> */}
         {/* <FetchExample></FetchExample> */}
         {/* <AxiosExample></AxiosExample> */}
-        <AxiosCRUDExample></AxiosCRUDExample>
+        <Router><AxiosCRUDExample/></Router>
 
         {/* Proyecto Final */}
         {/* { <TaskListComponent></TaskListComponent> } */}

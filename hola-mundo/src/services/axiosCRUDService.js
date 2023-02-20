@@ -17,7 +17,16 @@ export const login = (email, password) => {
     return axios.post('https://reqres.in/api/login',body)
 }
 
-// TODO Obtain all users
+// Obtain all users
+    export const getAllUsers = () => {
+        return axios.get('https://reqres.in/api/users')
+    }
+
+// Obtain all paged users
+
+    export const getAllPagedUsers = (page) => {
+        return axios.get(`https://reqres.in/api/users?page=${page}`)
+    }
 
 // TODO Obtain user by id
 
