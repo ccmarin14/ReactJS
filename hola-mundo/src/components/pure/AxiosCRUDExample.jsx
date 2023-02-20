@@ -1,5 +1,5 @@
 import React from 'react';
-import { login, getAllUsers, getAllPagedUsers } from '../../services/axiosCRUDService';
+import { login, getAllUsers, getAllPagedUsers, getUsersByID, createUser } from '../../services/axiosCRUDService';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -58,6 +58,28 @@ const AxiosCRUDExample = () => {
             .catch((error) => {
                 alert(`Something went wrong: ${error}`);
             })
+    }
+
+    const obtainUsersByID = (id) => {
+        getUsersByID(id)
+            .then((response) => {
+                alert(JSON.stringify(response.data.data));
+            })
+            .catch((error) => {
+                alert(`Something went wrong: ${error}`);
+            })
+    }
+
+    const createNewUser = (name, job) => {
+        createUser(name,job)
+            .then((response) => {
+                if (response.data && response.status === 201) {
+                    alert(JSON.stringify(response.data));
+                } else {
+                    throw new Error(`User not created`);
+                }
+            })
+            .catch((error) => alert(`Something went wrong ${error}`));
     }
 
     const navigate = useNavigate();
@@ -123,6 +145,8 @@ const AxiosCRUDExample = () => {
             <div>
                 <button onClick={obtainAllUsers}>Get all users with Axios</button>
                 <button onClick={() => obtainAllPagedUsers(1)}>Get all users (Page 1) with Axios</button>
+                <button onClick={() => obtainUsersByID(1)}>Get user 1</button>
+                <button onClick={() => createNewUser('Cristian Marin','Analista')}>Created User</button>
             </div>
         </div>
     );
