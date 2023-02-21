@@ -43,7 +43,18 @@ export const createUser = (name, job) => {
     return axios.post('https://reqres.in/api/users',body);
 }
 
-// TODO Update user
+// Update user
+export const updateUserByID = (id,name,job) => {
+    let body = {
+        name: name,
+        job: job
+    }
 
-// TODO Delete user
+    return axios.put(`https://reqres.in/api/users/${id}`, body);
+}
+
+// Delete user
+export const deleteUserByDI = (id) => {
+    return axios.delete(`https://reqres.in/api/users/${id}`);
+}
 

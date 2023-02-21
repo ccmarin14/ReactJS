@@ -1,5 +1,5 @@
 import React from 'react';
-import { login, getAllUsers, getAllPagedUsers, getUsersByID, createUser } from '../../services/axiosCRUDService';
+import { login, getAllUsers, getAllPagedUsers, getUsersByID, createUser, updateUserByID, deleteUserByDI } from '../../services/axiosCRUDService';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -43,7 +43,11 @@ const AxiosCRUDExample = () => {
     const obtainAllUsers = () => {
         getAllUsers()
             .then((response) => {
-                alert(JSON.stringify(response.data.data));
+                if (response.data.data && response.status === 200) {
+                    alert(JSON.stringify(response.data.data));
+                } else {
+                    throw new Error(`Not users found`);
+                }
             })
             .catch((error) => {
                 alert(`Something went wrong: ${error}`);
@@ -53,17 +57,25 @@ const AxiosCRUDExample = () => {
     const obtainAllPagedUsers = (page) => {
         getAllPagedUsers(page)
             .then((response) => {
-                alert(JSON.stringify(response.data.data));
+                if (response.data.data && response.status === 200) {
+                    alert(JSON.stringify(response.data.data));
+                } else {
+                    throw new Error(`Not user found in page ${page}`);
+                }
             })
             .catch((error) => {
                 alert(`Something went wrong: ${error}`);
             })
     }
 
-    const obtainUsersByID = (id) => {
+    const obtainUserByID = (id) => {
         getUsersByID(id)
             .then((response) => {
-                alert(JSON.stringify(response.data.data));
+                if (response.data.data && response.status === 200) {
+                    alert(JSON.stringify(response.data.data));
+                } else {
+                    throw new Error(`User not found`);
+                }
             })
             .catch((error) => {
                 alert(`Something went wrong: ${error}`);
@@ -80,6 +92,34 @@ const AxiosCRUDExample = () => {
                 }
             })
             .catch((error) => alert(`Something went wrong ${error}`));
+    }
+
+    const updateUser = (id,name,job) => {
+        updateUserByID(id,name,job)
+            .then((response) => {
+                if (response.data && response.status === 200) {
+                    alert(JSON.stringify(response.data));
+                } else {
+                    throw new Error(`User not found & no update done`);
+                }
+            })
+            .catch((error) => {
+                alert(`Something went wrong: ${error}`);
+            })
+    }
+
+    const deleteUser = (id) => {
+        deleteUserByDI(id)
+            .then((response) => {
+                if (response.status === 204) {
+                    alert(`User with id: ${id} succesfully deleted`);
+                } else {
+                    throw new Error(`User not found & no update done`);
+                }
+            })
+            .catch((error) => {
+                alert(`Something went wrong: ${error}`);
+            })
     }
 
     const navigate = useNavigate();
@@ -145,8 +185,10 @@ const AxiosCRUDExample = () => {
             <div>
                 <button onClick={obtainAllUsers}>Get all users with Axios</button>
                 <button onClick={() => obtainAllPagedUsers(1)}>Get all users (Page 1) with Axios</button>
-                <button onClick={() => obtainUsersByID(1)}>Get user 1</button>
+                <button onClick={() => obtainUserByID(1)}>Get user 1</button>
                 <button onClick={() => createNewUser('Cristian Marin','Analista')}>Created User</button>
+                <button onClick={() => updateUser(1,`Morpheus`,`Developer`)}>Update User</button>
+                <button onClick={() => deleteUser(1)}>Delete User</button>
             </div>
         </div>
     );
